@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./src/styles.css">
+  <title>Portfolio</title>
+</head>
+
+<body>
+
+  <main class='main'>
+    <nav class='navBar'>
+      <h1>Shreyansh Patni Portfolio</h1>
+      <div class='navigationMenu'>
+        <a href="#aboutMe">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contactForm">Let's Connect</a>
+        <div>
+    </nav>
+    <section class='heroSection'>
+      <img class='profileImage' src='./images/DP2-Shreyansh.jpg' alt="Profile-Image" />
+      <div class='herosectionDetails'>
+        <h1>Shreyansh patni</h1>
+        <h3>Web Designer</h3>
+        <h3>Front-End Web developer</h3>
+        <h3>C++</h3>
+      </div>
+    </section>
+    <section class='aboutMe' id='aboutMe'>
+      <h1>What I Do...</h1>
+      <p>I’m Shreyansh Patni , Im from Bhilwara Rajasthan,I’m working as web developer. have developed
+        many website and web design projects.
+        My Coursework is HTML5, CSS3, C++, GitHub, Responsive Web design.I update all
+        projects in my GitHub account.My studies have provided me with broad proficiency in the use of tools, software
+        packages and techniques.
+        I have been developing projects using C++, HTML, CSS.
+        Right now I'm also working on an a Website .
+        I also created shopping sites, NETFLIX landing page, TalenTrack clone and designs Websites for business and
+        companies.
+      </p>
+    </section>
+    <section class='skillsAndProjects'>
+      <div class='skills' id='skills'>
+        <h1 class='cardHeading'>Skills</h1>
+        <img title='HTML' src='./images/html5-svgrepo-com.svg'>
+        <img title='CSS' src='./images/css-svgrepo-com.svg'>
+        <img title='Javascript' src='./images/javascript-logo-svgrepo-com.svg'>
+        <img title='C++ Programming' src='./images/programming-svgrepo-com.svg'>
+        <img title='Front-End web developer' src='./images/web-development-svgrepo-com.svg'>
+        <img title="Github" src="./images/icons8-github-60.png" alt="">
+      </div>
+      <div class='projects' id='projects'>
+        <h1 class='cardHeading'>Projects</h1>
+        <div class='projectContainer'>
+          <img src='./images/css-svgrepo-com (1).svg' />
+          <div class='projectDescription'>
+            <a href="https://shreyanshnetflixclone.netlify.app/"
+              style="text-decoration: none; color: black;"><b>Netflix</b></a>
+            <p>NETFLIX landing page using HTML5 , CSS and JS </p>
+          </div>
+        </div>
+        <div class='projectContainer'>
+          <img src='./images/css-svgrepo-com (1).svg' />
+          <div class='projectDescription'>
+            <a href="https://shreyanshonlinefashionstore.netlify.app"
+              style="text-decoration: none; color: black;"><b>Ecommerce store</b></a>
+            <p>Ecommerce store using HTML 5 and CSS</p>
+          </div>
+        </div>
+        <div class='projectContainer'>
+          <img src='./images/css-svgrepo-com (1).svg' />
+          <div class='projectDescription'>
+            <a href="https://shreyanshtalentrack.netlify.app" style="text-decoration: none; color: black;"><b>TalenTrack
+                Landing Page</b></a>
+            <p>Talentrack Landing page using HTML 5 and CSS3</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <form class='contactForm' id='contactForm' name="submit-to-google-sheet">
+      <h1>Let's Connect!</h2><br>
+        <div class='formGroup'>
+          <label for='name'>Enter Full Name</label><br />
+          <input type='text' id='name' placeholder='Full Name' name="FullName" />
+        </div>
+        <div class='formGroup'>
+          <label for='email'>Email</label><br />
+          <input type='text' id='email' placeholder='Email' name="Email" />
+        </div>
+        <div class='formGroup'>
+          <label for='message'>Message</label><br />
+          <textarea placeholder="Send some message!" id="message" name="Message" rows="4" cols="50"></textarea>
+        </div>
+        <button class='submitButton'>Connect</button>
+    </form>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzBCcsBX80Mgc3bwjUILiooCxux9BooLjwmDnfH8Vyb9-cu751lxau4K3uJMpJPKthj/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            msg.innerHTML = "Message Sent"
+            setTimeout(function () {
+              msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+  </main>
+</body>
+
+</html>
